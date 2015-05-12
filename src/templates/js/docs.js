@@ -199,13 +199,11 @@ docsApp.serviceFactory.sections = function serviceFactory() {
     getPage: function(sectionId, partialId) {
       var pages = sections[sectionId];
 
-      if (pages) {
-        partialId = partialId || 'index';
+      partialId = partialId || 'index';
 
-        for (var i = 0, ii = pages.length; i < ii; i++) {
-          if (pages[i].id == partialId) {
-            return pages[i];
-          }
+      for (var i = 0, ii = pages.length; i < ii; i++) {
+        if (pages[i].id == partialId) {
+          return pages[i];
         }
       }
       return null;
@@ -520,7 +518,7 @@ docsApp.controller.DocsController = function($scope, $location, $window, section
   }
 };
 
-angular.module('docsApp', ['ngAnimate', 'bootstrap', 'bootstrapPrettify']).
+angular.module('docsApp', ['ngAnimate', 'ui.bootstrap', 'bootstrapPrettify']).
   config(function($locationProvider) {
     if (NG_DOCS.html5Mode) {
       $locationProvider.html5Mode(true).hashPrefix('!');

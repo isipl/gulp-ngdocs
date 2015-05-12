@@ -1,10 +1,21 @@
+body{
+	width: 100%;
+	padding-bottom: 400px;
+}
+
+.container{
+	width: auto;
+	min-width: 940px;
+	padding: 0 20px;
+}
+
 img.AngularJS-small {
   width: 95px;
   height: 25px;
 }
 
 /* this is here to avoid the display=block shuffling of ngShow */
-.breadcrumb li > * {
+/* .breadcrumb li > * {
   float:left;
   margin:0 2px 0 0;
 }
@@ -13,7 +24,7 @@ img.AngularJS-small {
   padding-top: 6px;
   padding-bottom: 0;
   line-height: 18px
-}
+} */
 
 .navbar img {
   max-height: 40px;
@@ -68,7 +79,6 @@ img.AngularJS-small {
 
 .form-search > ul.nav > li > a {
   margin: 0;
-  overflow: auto;
 }
 
 .form-search > ul.nav > li.module {
@@ -155,7 +165,8 @@ img.AngularJS-small {
   border: none;
   padding: 0;
   font-size: inherit;
-  font-family: monospace;
+  font-weight: bold;
+  /* font-family: monospace; */
 }
 
 .content h2,
@@ -219,7 +230,7 @@ ul.events > li > h3 {
   margin: -19px -19px 1em -19px;
   padding: .25em 19px;
   background-color: #d3d3d3;
-  font-family: monospace;
+  /* font-family: monospace; */
 }
 
 .center {
@@ -299,4 +310,8 @@ ul.events > li > h3 {
 
 .type-hint-number {
   background:rgb(189, 63, 66);
+}
+
+.type-hint-expression {
+  background:#3a87ad;
 }

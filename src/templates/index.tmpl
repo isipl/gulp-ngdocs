@@ -35,6 +35,9 @@
          addTag('link', {rel: 'stylesheet', href: '<%= url %>', type: 'text/css'}, sync);
       <% }); %>
 
+      addTag('script', {src: 'js/google-code-prettify.js'}, sync);
+      addTag('script', {src: 'js/marked.js'}, sync);
+
       <% _.forEach(scripts, function(url) { %>
         addTag('script', {src: '<%= url %>'}, sync);
       <% }); %>
@@ -83,10 +86,12 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
+<div class="container">
+  <!-- <header class="header"> -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+        
           <% if (image) { %>
             <% if (imageLink) { %>
               <a href="<%= imageLink %>">
@@ -99,22 +104,25 @@
           <% if (title) {%>
             <a <% if (titleLink) { %> href="<%= titleLink %>" <% } %> class="brand"><%= title %></a>
           <% } %>
-          <ul class="nav">
+		</div>
+		<div class="nav navbar-inner">
+		 
+          <ul class="nav navbar-nav">
             <li ng-repeat="(url, name) in sections" ng-class="{active: isActivePath(url)}">
               <a ng-href="{{url}}"><i class="icon-book icon-white"></i> {{name}}</a>
             </li>
           </ul>
           <%= navContent %>
-        </div>
-      </div>
+		   </div>
     </div>
-  </header>
+  	</nav>
+  <!-- </header> -->
 
   <div role="main" class="container">
     <div class="row clear-navbar"></div>
 
     <div class="row">
-      <div class="span12">
+      <div class="col-md-12">
         <!--[if lt IE 7]>
         <p class="alert alert-error">Your browser is <em>ancient!</em>
           <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
@@ -135,7 +143,7 @@
     </div>
 
     <div class="row">
-      <div class="span3">
+      <div class="col-md-3">
         <form class="form-search" ng-submit="submitForm()">
           <% if (bestMatch) { %>
           <div class="dropdown search"
@@ -218,13 +226,13 @@
 
         </form>
       </div>
-      <div class="span9">
+      <div class="col-md-9">
 
         <ul class="breadcrumb">
           <li ng-repeat="crumb in breadcrumb">
             <span ng-hide="crumb.url">{{crumb.name}}</span>
             <a ng-show="crumb.url" href="{{crumb.url}}">{{crumb.name}}</a>
-            <span ng-show="crumb.url" class="divider">/</span>
+            <!-- <span ng-show="crumb.url" class="divider">/</span> -->
           </li>
         </ul>
 
@@ -240,6 +248,6 @@
       </div>
     </div>
   </div>
-
+</div>
 </body>
 </html>
