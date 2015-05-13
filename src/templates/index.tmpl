@@ -100,9 +100,10 @@
             <% if (imageLink) { %>
               </a>
             <% } %>
-          <% } %>
-          <% if (title) {%>
-            <a <% if (titleLink) { %> href="<%= titleLink %>" <% } %> class="brand"><%= title %></a>
+          <% } else { %>
+            <% if (title) {%>
+                <a <% if (titleLink) { %> href="<%= titleLink %>" <% } %> class="brand"><%= title %></a>
+            <% } %>
           <% } %>
 		</div>
 		<div class="nav navbar-inner">
